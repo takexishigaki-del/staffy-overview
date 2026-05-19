@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STAFFY（スタッフィー）サービス概要</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;background:#F7F9FC;color:#1a1a1a;line-height:1.6}
+
+  .wrap{max-width:780px;margin:0 auto;padding:32px 20px}
+
+  .hero{text-align:center;margin-bottom:36px}
+  .badge{display:inline-block;background:#EAF3DE;color:#27500A;font-size:11px;font-weight:600;padding:4px 16px;border-radius:20px;margin-bottom:12px;letter-spacing:.06em}
+  .hero h1{font-size:32px;font-weight:700;color:#111;line-height:1.2}
+  .hero h1 span{font-size:20px;color:#666;font-weight:400;margin-left:8px}
+  .hero p{font-size:14px;color:#555;margin-top:8px}
+
+  .slabel{font-size:10px;font-weight:700;letter-spacing:.1em;color:#999;text-transform:uppercase;margin-bottom:10px}
+
+  /* pain */
+  .pain-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+  .pain-card{background:#FFFDF5;border:1px solid #EDE9DC;border-radius:10px;padding:14px}
+  .pain-title{font-size:13px;font-weight:600;color:#222;margin:6px 0 4px}
+  .pain-desc{font-size:12px;color:#666;line-height:1.5}
+
+  .arr-c{text-align:center;margin:4px 0 16px;font-size:22px;color:#bbb}
+
+  /* merit grid 3x2 */
+  .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+  .mc{border-radius:12px;padding:16px;border:1px solid #E2EDF9;background:#F5F9FF}
+  .mc-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .mico{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+  .ic-b{background:#E6F1FB;color:#185FA5}
+  .ic-t{background:#E1F5EE;color:#0F6E56}
+  .ic-a{background:#FAEEDA;color:#854F0B}
+  .ic-p{background:#EEEDFE;color:#534AB7}
+  .ic-g{background:#EAF3DE;color:#3B6D11}
+  .ic-c{background:#FAECE7;color:#993C1D}
+  .mc-title{font-size:13px;font-weight:600;color:#1a1a1a}
+  .mc-body{font-size:12px;color:#555;line-height:1.65}
+
+  /* device banner */
+  .dev-banner{background:#F5F9FF;border:1px solid #C6DEFA;border-radius:10px;padding:12px 18px;display:flex;align-items:center;gap:14px;margin-bottom:24px}
+  .dev-banner-title{font-size:13px;font-weight:600;color:#1a1a1a}
+  .dev-banner-sub{font-size:12px;color:#555}
+
+  /* feature cards */
+  .fc{border-radius:12px;padding:14px;border-top:1px solid #eee;border-right:1px solid #eee;border-bottom:1px solid #eee;border-left:3px solid #ccc;background:#FAFBFC}
+  .fc.bl{border-left-color:#378ADD}
+  .fc.bt{border-left-color:#1D9E75}
+  .fc.ba{border-left-color:#EF9F27}
+  .fc.bp{border-left-color:#7F77DD}
+  .fc.bg{border-left-color:#639922}
+  .fc.bc{border-left-color:#D85A30}
+  .fn{font-size:9px;font-weight:700;color:#aaa;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+  .ft{font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:5px}
+  .fb{font-size:12px;color:#555;line-height:1.6}
+
+  /* two col */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+  .ic2{background:#FAFBFC;border:1px solid #E2E0D8;border-radius:12px;padding:16px}
+  .ic2-title{font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:10px;border-bottom:1px solid #eee;padding-bottom:8px}
+  .tag{display:inline-block;font-size:11px;padding:3px 10px;border-radius:10px;margin:2px 2px 2px 0;font-weight:500}
+  .tb{background:#E6F1FB;color:#0C447C}
+  .tt{background:#E1F5EE;color:#085041}
+  .ta{background:#FAEEDA;color:#633806}
+  .tp{background:#EEEDFE;color:#3C3489}
+
+  /* team */
+  .team-row{display:flex;gap:10px;margin-bottom:24px}
+  .member{background:#F5F9FF;border:1px solid #E2EDF9;border-radius:10px;padding:12px;flex:1;text-align:center}
+  .avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;margin:0 auto 8px}
+  .av-b{background:#E6F1FB;color:#0C447C}
+  .av-t{background:#E1F5EE;color:#085041}
+  .av-p{background:#EEEDFE;color:#3C3489}
+  .av-g{background:#F1EFE8;color:#5F5E5A}
+  .mn{font-size:12px;font-weight:600;color:#1a1a1a}
+  .mr{font-size:11px;color:#666;margin-top:2px;line-height:1.4}
+
+  /* timeline */
+  .tl{position:relative;padding-left:22px;border-left:1.5px solid #ddd;margin-bottom:24px;display:flex;flex-direction:column;gap:16px}
+  .tli{position:relative}
+  .tld{position:absolute;left:-27px;top:4px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid #ccc}
+  .tld.done{background:#1D9E75;border-color:#1D9E75}
+  .tld.next{background:#378ADD;border-color:#378ADD}
+  .tl-date{font-size:11px;color:#999;font-weight:600}
+  .tl-title{font-size:13px;font-weight:600;color:#1a1a1a}
+  .tl-body{font-size:12px;color:#555;line-height:1.5}
+
+  /* vision */
+  .vision{background:#F5FBF7;border:1px solid #B8E2CA;border-radius:14px;padding:20px;text-align:center}
+  .vision p{font-size:15px;font-weight:600;color:#111;line-height:1.8}
+  .vision small{font-size:12px;color:#666;display:block;margin-top:10px}
+
+  .div{height:1px;background:#ECEAE2;margin:22px 0}
+
+  /* section wrapper */
+  .section{margin-bottom:28px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="badge">巡回日常清掃管理アプリ</div>
+    <h1>STAFFY <span>スタッフィー</span></h1>
+    <p>清掃会社が、清掃現場のために作った業務アプリ</p>
+  </div>
+
+  <div class="section">
+    <div class="slabel">① 解決する課題</div>
+    <div class="pain-row">
+      <div class="pain-card">
+        <i class="ti ti-alert-triangle" style="color:#BA7517;font-size:20px"></i>
+        <div class="pain-title">エビデンス問題</div>
+        <div class="pain-desc">「本当に来た？」の証明ができない。手書き・QRは改ざん可能</div>
+      </div>
+      <div class="pain-card">
+        <i class="ti ti-file-description" style="color:#BA7517;font-size:20px"></i>
+        <div class="pain-title">二重事務作業</div>
+        <div class="pain-desc">日報・月報の二重記入。写真をメモリーチップで持参</div>
+      </div>
+      <div class="pain-card">
+        <i class="ti ti-clock" style="color:#BA7517;font-size:20px"></i>
+        <div class="pain-title">属人化・管理の限界</div>
+        <div class="pain-desc">スケジュール管理が属人的で急変対応に時間がかかる</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arr-c"><i class="ti ti-arrow-down"></i></div>
+
+  <div class="section">
+    <div class="slabel">② 導入メリット</div>
+    <div class="g3">
+      <div class="mc">
+        <div class="mc-head"><div class="mico ic-b"><i class="ti ti-calendar-check"></i></div><div class="mc-title">勤怠・スケジュール管理</div></div>
+        <div class="mc-body">スタッフの出退勤・巡回スケジュールを一元管理。急な変更もリアルタイム対応</div>
+      </div>
+      <div class="mc">
+        <div class="mc-head"><div class="mico ic-t"><i class="ti ti-map-pin"></i></div><div class="mc-title">GPS位置情報エビデンス</div></div>
+        <div class="mc-body">改ざん不可能なGPS＋時刻を自動記録。訪問事実を完全証明し顧客信頼を強化</div>
+      </div>
+      <div class="mc">
+        <div class="mc-head"><div class="mico ic-a"><i class="ti ti-report-off"></i></div><div class="mc-title">事務作業を大幅削減</div></div>
+        <div class="mc-body">日報・月報・写真提出がアプリで自動完結。月十数時間の作業をゼロに</div>
+      </div>
+      <div class="mc">
+        <div class="mc-head"><div class="mico ic-p"><i class="ti ti-robot"></i></div><div class="mc-title">AI連動で緊急対応が簡単</div></div>
+        <div class="mc-body">Hey! Staffyが管理業務をナビゲート。緊急依頼の受付・指示出しが迅速化し経営者・管理職の負担を大幅軽減</div>
+      </div>
+      <div class="mc">
+        <div class="mc-head"><div class="mico ic-g"><i class="ti ti-photo"></i></div><div class="mc-title">写真の自動振り分け</div></div>
+        <div class="mc-body">撮影した写真をリサイズし物件ごとに自動振り分け。提出の手間と容量を同時に解決</div>
+      </div>
+      <div class="mc">
+        <div class="mc-head"><div class="mico ic-c"><i class="ti ti-devices"></i></div><div class="mc-title">iOS・Android 両対応</div></div>
+        <div class="mc-body">端末を選ばず通信量もほぼゼロ。ITが苦手なスタッフでも即日使用可能な軽量設計</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="slabel">③ 主な機能</div>
+    <div class="g3">
+      <div class="fc bl">
+        <div class="fn">機能 01</div>
+        <div class="ft"><i class="ti ti-map-pin" style="font-size:13px;margin-right:3px"></i>GPS＋時刻エビデンス</div>
+        <div class="fb">改ざん不可能な位置情報と時刻を自動記録。QRコード方式の欠点を完全解消</div>
+      </div>
+      <div class="fc bt">
+        <div class="fn">機能 02</div>
+        <div class="ft"><i class="ti ti-report" style="font-size:13px;margin-right:3px"></i>日報・月報の自動生成</div>
+        <div class="fb">スタッフはタップするだけ。日報・月報・写真提出がアプリ一つで完結</div>
+      </div>
+      <div class="fc ba">
+        <div class="fn">機能 03</div>
+        <div class="ft"><i class="ti ti-calendar-stats" style="font-size:13px;margin-right:3px"></i>スケジュール報告・管理</div>
+        <div class="fb">巡回スケジュールの登録・変更・報告が簡単に。コース組み替えも即時反映</div>
+      </div>
+      <div class="fc bp">
+        <div class="fn">機能 04</div>
+        <div class="ft"><i class="ti ti-robot" style="font-size:13px;margin-right:3px"></i>Hey! Staffy（AI）</div>
+        <div class="fb">2026年6月搭載。管理画面をAIがナビゲート。新人でも迷わず即日操作可能</div>
+      </div>
+      <div class="fc bg">
+        <div class="fn">機能 05</div>
+        <div class="ft"><i class="ti ti-file-check" style="font-size:13px;margin-right:3px"></i>画像付き報告書の自動生成</div>
+        <div class="fb">写真を自動リサイズ・物件別振り分けのうえ報告書に自動挿入。提出が一発完結</div>
+      </div>
+      <div class="fc bc">
+        <div class="fn">機能 06</div>
+        <div class="ft"><i class="ti ti-device-gamepad-2" style="font-size:13px;margin-right:3px"></i>Staffyクエスト（予定）</div>
+        <div class="fb">清掃するたびポイント獲得・レベルアップ。ゲーム性でモチベーションを持続</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="section">
+    <div class="slabel">④⑤ ターゲット・ビジネスモデル</div>
+    <div class="two-col">
+      <div class="ic2">
+        <div class="ic2-title"><i class="ti ti-target" style="font-size:13px;margin-right:4px"></i>ターゲット</div>
+        <div style="margin-bottom:10px">
+          <div style="font-size:10px;color:#999;margin-bottom:4px;font-weight:600">PRIMARY</div>
+          <span class="tag tb">中小清掃会社（経営者・管理者）</span><span class="tag tt">IT苦手な会社</span>
+        </div>
+        <div style="margin-bottom:10px">
+          <div style="font-size:10px;color:#999;margin-bottom:4px;font-weight:600">SECONDARY</div>
+          <span class="tag ta">元請け管理会社</span><span class="tag tp">不動産オーナー</span>
+        </div>
+        <div style="font-size:10px;color:#999;margin-bottom:4px;font-weight:600">将来</div>
+        <span class="tag tb">エンドユーザーマイページ</span>
+      </div>
+      <div class="ic2">
+        <div class="ic2-title"><i class="ti ti-building-store" style="font-size:13px;margin-right:4px"></i>ビジネスモデル</div>
+        <div style="font-size:13px;color:#444;line-height:1.7">月額SaaS＋初期導入費<br><span style="font-size:11px;color:#888">同業他社・元請けへのOEM展開も視野</span></div>
+        <div style="height:1px;background:#eee;margin:10px 0"></div>
+        <div style="font-size:10px;color:#999;margin-bottom:4px;font-weight:600">不動産業界への貢献</div>
+        <div style="font-size:12px;color:#555;line-height:1.6">清掃品質の見える化・信頼担保<br>オーナーと清掃会社の情報格差を解消</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="section">
+    <div class="slabel">⑥ 開発体制</div>
+    <div class="team-row">
+      <div class="member">
+        <div class="avatar av-b">石垣</div>
+        <div class="mn">石垣 勇人</div>
+        <div class="mr">代表・構想・設計<br>清掃業28年</div>
+      </div>
+      <div class="member">
+        <div class="avatar av-t">社内</div>
+        <div class="mn">社内スタッフ</div>
+        <div class="mr">テイクス スタジオ<br>開発・運用</div>
+      </div>
+      <div class="member">
+        <div class="avatar av-p">SE</div>
+        <div class="mn">外部SE</div>
+        <div class="mr">システムエンジニア<br>技術実装</div>
+      </div>
+      <div class="member">
+        <div class="avatar av-g"><i class="ti ti-building" style="font-size:17px"></i></div>
+        <div class="mn">外部システム会社</div>
+        <div class="mr">販売版DB・<br>バックエンド（連携予定）</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="section">
+    <div class="slabel">⑦ ロードマップ</div>
+    <div class="tl">
+      <div class="tli">
+        <div class="tld done"></div>
+        <div class="tl-date">2026年4月 ✓ 完了</div>
+        <div class="tl-title">自社での本格運用開始</div>
+        <div class="tl-body">現場スタッフより高い支持。月報作業ゼロを実現</div>
+      </div>
+      <div class="tli">
+        <div class="tld next"></div>
+        <div class="tl-date">2026年6月 → 次のマイルストーン</div>
+        <div class="tl-title">Hey! Staffy（AI管理ナビ）搭載</div>
+        <div class="tl-body">管理画面をAIがナビゲート。緊急対応・依頼受付を迅速化。経営者・管理職の仕事が大幅に楽になる</div>
+      </div>
+      <div class="tli">
+        <div class="tld"></div>
+        <div class="tl-date">近中期</div>
+        <div class="tl-title">同業他社への販売開始・エンドユーザーマイページ</div>
+        <div class="tl-body">物件オーナーが清掃進捗・報告書・不具合履歴をリアルタイム確認</div>
+      </div>
+      <div class="tli">
+        <div class="tld"></div>
+        <div class="tl-date">長期</div>
+        <div class="tl-title">Staffyクエスト・清掃プラットフォーム化</div>
+        <div class="tl-body">日本中の清掃スタッフが繋がるゲーム型コミュニティへ</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="section">
+    <div class="slabel">⑧ ブランドビジョン</div>
+    <div class="vision">
+      <p>「ウーバーイーツが出前を再定義したように、<br>STAFFYが日常清掃を再定義する」</p>
+      <small>楽チン・かんたん・信用・ホンモノ — 清掃の仕事を、もう一度輝かせる</small>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
